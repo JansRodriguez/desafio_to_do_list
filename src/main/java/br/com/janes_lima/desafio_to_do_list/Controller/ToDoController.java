@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.janes_lima.desafio_to_do_list.Model.To_Do;
 import br.com.janes_lima.desafio_to_do_list.Service.ToDoService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/todos")
@@ -23,7 +24,7 @@ public class ToDoController {
     }
 
     @PostMapping
-    Iterable<To_Do> create(@RequestBody To_Do entidade){
+    Iterable<To_Do> create(@RequestBody @Valid To_Do entidade){
         return servico.criar(entidade);
     }
 
